@@ -8,16 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-
 import com.example.studentcity.R
 import com.example.studentcity.models.ImageLoader.ImageLoader
 import com.example.studentcity.models.news.NewsModel
-
-import java.util.ArrayList
-import java.util.regex.Matcher
+import java.util.*
 import java.util.regex.Pattern
 
-class ListNewsAdapter(
+public class ListNewsAdapter(
     private val context: Context,
     private var news: ArrayList<NewsModel>?,
     private val callback: ItemClickListener?
@@ -60,17 +57,12 @@ class ListNewsAdapter(
         notifyDataSetChanged()
     }
 
-    internal inner class ViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val textContentView: TextView
-        private val imageContentView: ImageView
+        private val textContentView: TextView = itemView.findViewById(R.id.textContentView)
+        private val imageContentView: ImageView = itemView.findViewById(R.id.imageContentView)
 
         private val CHARS_OF_LINKS_PATTERN = arrayOf("[", "]", "|")
-
-        init {
-            textContentView = itemView.findViewById(R.id.textContentView)
-            imageContentView = itemView.findViewById(R.id.imageContentView)
-        }
 
         fun setTextContentView(textContent: String) {
             var newContent = deleteLinkOfClub(textContent)
