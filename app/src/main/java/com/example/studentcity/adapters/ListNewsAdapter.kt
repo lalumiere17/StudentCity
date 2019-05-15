@@ -71,7 +71,7 @@ public class ListNewsAdapter(
             textContentView.movementMethod = LinkMovementMethod.getInstance()
         }
 
-        private fun setImageContentView(imageContent: String) {
+        fun setImageContentView(imageContent: String) {
             val imageLoader = ImageLoader(imageContentView, imageContent)
             imageLoader.load()
         }
@@ -110,21 +110,21 @@ public class ListNewsAdapter(
 
         }
 
-        private fun deleteLinkOfClub(textContent: String?): String? {
+        fun deleteLinkOfClub(textContent: String?): String? {
             val PATTERN_FOR_LINK_OF_CLUB = ".+(club[0-9]+).+"
             return deleteText(textContent, PATTERN_FOR_LINK_OF_CLUB, *CHARS_OF_LINKS_PATTERN)
         }
 
-        private fun deleteLinkOfProfile(textContent: String?): String? {
+        fun deleteLinkOfProfile(textContent: String?): String? {
             val PATTERN_FOR_LINK_OF_PROFILE = ".+(id[0-9]+).+"
             return deleteText(textContent, PATTERN_FOR_LINK_OF_PROFILE, *CHARS_OF_LINKS_PATTERN)
         }
 
-        private fun hideImage() {
+        fun hideImage() {
             imageContentView.visibility = View.GONE
         }
 
-        private fun hideText() {
+        fun hideText() {
             textContentView.visibility = View.GONE
         }
     }
