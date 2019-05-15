@@ -132,4 +132,6 @@ public class ListNewsAdapter(
     interface ItemClickListener {
         fun onClick(news: NewsModel)
     }
+
+
 }
