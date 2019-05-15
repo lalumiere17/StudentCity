@@ -1,6 +1,6 @@
 package com.example.studentcity.models.database
 
-class Stuff : Human() {
-    val post: Post? = null
-    val photo: String? = null
-}
+data class Stuff(
+    val post:Post,
+    val photo:String
+) : Human()

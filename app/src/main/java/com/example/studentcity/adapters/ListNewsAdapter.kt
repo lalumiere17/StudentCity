@@ -14,7 +14,7 @@ import com.example.studentcity.models.news.NewsModel
 import java.util.*
 import java.util.regex.Pattern
 
-public class ListNewsAdapter(
+class ListNewsAdapter(
     private val context: Context,
     private var news: ArrayList<NewsModel>?,
     private val callback: ItemClickListener?
@@ -76,7 +76,7 @@ public class ListNewsAdapter(
             imageLoader.load()
         }
 
-        private fun deleteText(text: String?, sourcePattern: String, vararg chars: String): String? {
+        fun deleteText(text: String?, sourcePattern: String, vararg chars: String): String? {
             try {
                 var result = ""
                 val texts = text!!.split("\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()

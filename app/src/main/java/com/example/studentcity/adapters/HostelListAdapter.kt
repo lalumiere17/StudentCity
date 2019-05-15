@@ -70,7 +70,9 @@ class HostelListAdapter(
 
     fun showMessage(message: String) {}
 
-    inner class ViewHolder(internal var itemView: View) : RecyclerView.ViewHolder(itemView)
+    class ViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    }
 
     interface onItemClickListener {
         fun onItemClick(hostel: Hostel)

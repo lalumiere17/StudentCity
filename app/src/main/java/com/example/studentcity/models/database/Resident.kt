@@ -1,6 +1,4 @@
 package com.example.studentcity.models.database
 
 
-class Resident : Human() {
-    private val numberRoom: String? = null
-}
+data class Resident(val numberRoom:String) : Human()

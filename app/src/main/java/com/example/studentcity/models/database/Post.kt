@@ -2,10 +2,10 @@ package com.example.studentcity.models.database
 
 import java.io.Serializable
 
-class Post : Serializable {
-
-    private val id: Int = 0
-    val title: String? = null
+data class Post(
+    val id:Int,
+    val title:String
+) : Serializable {
 
     companion object {
 
