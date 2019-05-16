@@ -7,6 +7,17 @@ import java.util.ArrayList
 
 data class Hostel(
     val title: String,
+    val coordinates: Coordinates,
+    val address: String,
+    val photo: String,
+    val phone: String,
+
+    val numberFloors: Int,
+    val numberStudents: Int,
+    val rating: Double,
+
+    val stuffs: ArrayList<Stuff>,
+    val residents: ArrayList<Resident>
     ) : Serializable {
 
     companion object {
