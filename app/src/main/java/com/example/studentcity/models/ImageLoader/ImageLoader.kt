@@ -14,7 +14,7 @@ class ImageLoader(private val imageView: ImageView, private val url: String) {
     }
 
     fun cancel() {
-        if (task != null || !task!!.isCancelled()) {
+        if (task != null || !task!!.isCancelled) {
             task!!.cancel(true)
         }
     }

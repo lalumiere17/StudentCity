@@ -53,18 +53,18 @@ class ML (mediaImage: Image) {
         return result
     }
 
-    val image = FirebaseVisionImage.fromMediaImage(mediaImage, rotation)
-
-    val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
-
-    val result = detector.processImage(image)
-        .addOnSuccessListener {
-                firebaseVisionText ->
-            //
-        }
-        .addOnFailureListener{
-
-        }
+//    val image = FirebaseVisionImage.fromMediaImage(mediaImage, rotation)
+//
+//    val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
+//
+//    val result = detector.processImage(image)
+//        .addOnSuccessListener {
+//                firebaseVisionText ->
+//            //
+//        }
+//        .addOnFailureListener{
+//
+//        }
 
 
 
