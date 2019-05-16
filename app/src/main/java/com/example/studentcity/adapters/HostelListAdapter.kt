@@ -43,8 +43,8 @@ class HostelListAdapter(
         })
 
         val hostel: Hostel = hostels[position]
-        setText(hostelName, hostel.getTitle())
-        setText(hostelAddress, hostel.getAddress())
+        setText(hostelName, hostel.title)
+        setText(hostelAddress, hostel.title)
     }
 
     private fun setText(textView: TextView, text: String) {
