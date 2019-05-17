@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Context.CAMERA_SERVICE
+import android.graphics.Bitmap
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
@@ -17,9 +18,9 @@ import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata
 
-class ML (mediaImage: Image) {
+class ML (imageBitmap: Bitmap) {
 
-    val image = FirebaseVisionImage.fromBitmap(bitmap)
+    val image = FirebaseVisionImage.fromBitmap(imageBitmap)
 
 //    private val ORIENTATIONS = SparseIntArray()
 //

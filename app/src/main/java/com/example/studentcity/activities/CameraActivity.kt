@@ -11,12 +11,14 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import com.example.studentcity.ML
 import com.example.studentcity.R
 import kotlinx.android.synthetic.main.activity_camera.*
 import java.io.File
 
 class CameraActivity : AppCompatActivity() {
 
+    //initialization camera button
     lateinit var camera_button: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,8 @@ class CameraActivity : AppCompatActivity() {
         camera_button = findViewById(R.id.camera_button)
         camera_button.setOnClickListener { dispatchTakePictureIntent() }
     }
+
+
 
     val REQUEST_IMAGE_CAPTURE = 1
 
@@ -38,9 +42,11 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
+    //получаем из Интента bitmap изображения и отправляем его на обработку
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            ML(imageBitmap)
         }
     }
 }

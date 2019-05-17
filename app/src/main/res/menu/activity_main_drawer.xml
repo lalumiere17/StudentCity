@@ -19,6 +19,11 @@
 				android:id="@+id/menu_news"
 				android:title="@string/news"
 				android:icon="@drawable/ic_news"/>
+
+			<item
+					android:id="@+id/menu_pass"
+					android:title="Пропуск"
+					android:icon="@drawable/ic_pass"/>
 		</menu>
 	</item>
 	<item android:title="@string/events">

@@ -1,5 +1,7 @@
 package com.example.studentcity.activities
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.design.widget.Snackbar
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var progressBar: ProgressBar
     lateinit var drawer_layout: DrawerLayout
+
 
     //private Router router
 
@@ -75,6 +78,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.menu_news -> {
                 //router.showFragmentGone(NewsFragment(), null)
+            }
+            R.id.menu_pass -> {
+                //Starting camera activity
+                val intent = Intent(this, CameraActivity::class.java)
+                startActivity(intent)
             }
         }
 
