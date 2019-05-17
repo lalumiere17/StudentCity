@@ -17,7 +17,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class HostelFragment : RootFragment() {
 
-    private lateinit var hostelPhoto: ImageView
+    private lateinit var hostelPhotoView: ImageView
 
     private lateinit var buttonCall: Button
     private lateinit var buttonMap: Button
@@ -42,12 +42,7 @@ class HostelFragment : RootFragment() {
 
     private lateinit var presenter: HostelFragmentPresenter
 
-    private var hostelPhotoLoader: ImageLoader? = null
-    private var hostelManagerPhotoLoader: ImageLoader? = null
-    private var studentManagerPhotoLoader: ImageLoader? = null
-    private var cultureManagerPhotoLoader: ImageLoader? = null
-    private var sportManagerPhotoLoader: ImageLoader? = null
-
+    private val loaders:ArrayList<ImageLoader> = ArrayList()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -57,7 +52,7 @@ class HostelFragment : RootFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        hostelPhoto = view.findViewById(R.id.hostelPhoto)
+        hostelPhotoView = view.findViewById(R.id.hostelPhoto)
 
         buttonCall = view.findViewById(R.id.buttonCall)
         buttonCall.setOnClickListener { presenter.redirectToCall() }
@@ -86,12 +81,9 @@ class HostelFragment : RootFragment() {
         presenter.showHostel()
     }
 
-    override fun onStop() {
-        super.onStop()
-    }
-
     override fun onPause() {
         super.onPause()
+        loaders.forEach { it.cancel() }
     }
 
     private fun setText(textView: TextView, type: String, text: String) {
@@ -99,11 +91,13 @@ class HostelFragment : RootFragment() {
         textView.text = resultText
     }
 
-    fun showHostelPhoto(photo: String) {
-        if (TextUtils.isEmpty(photo)) return
+    fun showHostelPhoto(urlPhoto: String) {
+        if (TextUtils.isEmpty(urlPhoto)) return
 
+        val imageLoader = ImageLoader(hostelPhotoView, urlPhoto)
+        loaders.add(imageLoader)
+        imageLoader.load()
     }
-
     fun showHostelTitle(title: String) {
         if (TextUtils.isEmpty(title)) return
         hostelTitle.text = title
@@ -156,6 +150,7 @@ class HostelFragment : RootFragment() {
         if (checkPhotoAndName(urlPhoto, name)) return
 
         val imageLoader = ImageLoader(photoManagerView, urlPhoto)
+        loaders.add(imageLoader)
         imageLoader.load()
         nameManagerView.text = name
     }
