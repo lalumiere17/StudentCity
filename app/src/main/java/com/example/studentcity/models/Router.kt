@@ -17,7 +17,7 @@ class Router {
     private var fragmentManager: FragmentManager? = null
     private var activity: Activity? = null
 
-    private val currentFragment: Fragment?
+    private lateinit var currentFragment: Fragment
 
     constructor(fragment: Fragment) {
         this.fragmentManager = fragment
