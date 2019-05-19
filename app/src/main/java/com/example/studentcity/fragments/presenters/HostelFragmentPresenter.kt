@@ -13,79 +13,61 @@ import com.example.studentcity.models.database.Stuff
 
 class HostelFragmentPresenter(private val fragment: HostelFragment) {
     private var hostel: Hostel? = null
-    private val router: Router
-
-    init {
-        this.router = Router(fragment)
-    }
+    private val router: Router = Router(fragment)
 
     fun showHostel() {
-        val args = fragment.getArguments()
+        val args = fragment.arguments
         if (args == null) {
             fragment.showMessage(fragment.getString(R.string.error_downloading_data))
             return
         }
 
-        hostel = args!!.getSerializable(Hostel.SERIALIZABLE_KEY) as Hostel
+        hostel = args.getSerializable(Hostel.SERIALIZABLE_KEY) as Hostel
 
         if (hostel == null) {
             fragment.showMessage(fragment.getString(R.string.error_downloading_data))
             return
         }
 
-        fragment.showHostelTitle(hostel!!.getTitle())
-        fragment.showHostelPhoto(hostel!!.getPhoto())
-        fragment.showAddress(hostel!!.getAddress())
-        fragment.showNumberFloors(hostel!!.getNumberFloors())
-        fragment.showNumberStudents(hostel!!.getNumberStudents())
-        fragment.showRating(hostel!!.getRating())
+        fragment.showHostelTitle(hostel!!.title)
+        fragment.showHostelPhoto(hostel!!.photo)
+        fragment.showAddress(hostel!!.address)
+        fragment.showNumberFloors(hostel!!.numberFloors)
+        fragment.showNumberStudents(hostel!!.numberStudents)
+        fragment.showRating(hostel!!.rating)
 
         val hostelManager = hostel!!.getStuff(Post.HOSTEL_MANAGER_POST)
         if (hostelManager != null) {
-            val fullName = String.format(
-                "%s %s %s", hostelManager!!.getSurname(),
-                hostelManager!!.getFirstname(), hostelManager!!.getPatronymic()
-            )
-
-            fragment.showHostelManager(hostelManager!!.getPhoto(), fullName)
+            val fullName = hostelManager.toString()
+            fragment.showHostelManager(hostelManager.photo, fullName)
         }
 
         val studentManager = hostel!!.getStuff(Post.STUDENT_MANAGER_POST)
         if (studentManager != null) {
-            val fullName = String.format(
-                "%s %s %s", studentManager!!.getSurname(),
-                studentManager!!.getFirstname(), studentManager!!.getPatronymic()
-            )
-
-            fragment.showStudentManager(studentManager!!.getPhoto(), fullName)
+            val fullName = studentManager.toString()
+            fragment.showStudentManager(studentManager.photo, fullName)
         }
 
         val cultureManager = hostel!!.getStuff(Post.CULTURE_MANAGER_POST)
         if (cultureManager != null) {
-            val fullName = String.format(
-                "%s %s %s", cultureManager!!.getSurname(),
-                cultureManager!!.getFirstname(), cultureManager!!.getPatronymic()
-            )
+            val fullName = cultureManager.toString()
 
-            fragment.showCultureManager(cultureManager!!.getPhoto(), fullName)
+            fragment.showCultureManager(cultureManager.photo, fullName)
         }
 
         val sportManager = hostel!!.getStuff(Post.SPORT_MANAGER_POST)
         if (sportManager != null) {
 
-            val fullName = String.format(
-                "%s %s %s", sportManager!!.getSurname(),
-                sportManager!!.getFirstname(), sportManager!!.getPatronymic()
-            )
+            val fullName = sportManager.toString()
 
-            fragment.showSportManager(sportManager!!.getPhoto(), fullName)
+            fragment.showSportManager(sportManager.photo, fullName)
         }
     }
 
     fun redirectToCall() {
         if (hostel == null) return
 
-        val phoneNumber = hostel!!.getPhone()
+        val phoneNumber = hostel!!.phone
         if (!TextUtils.isEmpty(phoneNumber))
             router.redirectToCallForward(phoneNumber)
 

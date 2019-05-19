@@ -21,7 +21,19 @@ data class Hostel(
     ) : Serializable {
 
     companion object {
-        val SERIALIZABLE_KEY = "HOSTEL"
+        const val SERIALIZABLE_KEY = "HOSTEL"
+    }
+
+    fun getStuff(post: String): Stuff? {
+        if (TextUtils.isEmpty(post))
+            return null
+
+        for (stuff in stuffs) {
+            if (stuff.post.title == post)
+                return stuff
+        }
+
+        return null
     }
 }
 
@@ -60,19 +72,7 @@ data class Hostel(
 //        residents = ArrayList<Resident>()
 //    }
 //
-//    fun getStuff(post: String): Stuff? {
-//        if (TextUtils.isEmpty(post))
-//            return null
 //
-//        if (stuffs == null) return null
-//
-//        for (stuff in stuffs) {
-//            if (stuff.post?.title.equals(post))
-//                return stuff
-//        }
-//
-//        return null
-//    }
 //
 //
 //}
