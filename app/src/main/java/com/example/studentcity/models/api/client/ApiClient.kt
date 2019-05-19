@@ -1,5 +1,6 @@
 package com.example.studentcity.models.api.client
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -35,7 +36,6 @@ class ApiClient private constructor(private val activity: FragmentActivity) {
             .build()
     }
 
-    @Throws(IOException::class)
     fun POSTRequest(action: String, data: Any): Response {
 
         val mediaType = MediaType.parse(MEDIA_TYPE)
@@ -68,18 +68,19 @@ class ApiClient private constructor(private val activity: FragmentActivity) {
     }
 
     companion object {
-        val API_URL = "http://192.168.31.72/"
-        private val TIMEOUT = 30
-        private val MEDIA_TYPE = "application/json"
+        private const val API_URL = "http://192.168.31.72/"
+        private const val TIMEOUT = 30L
+        private const val MEDIA_TYPE = "application/json"
 
+        @SuppressLint("StaticFieldLeak")
         private var singleton: ApiClient? = null
 
-        fun getInstance(activity: FragmentActivity): ApiClient {
-            if (singleton == null) {
+        fun getInstance(activity: FraggtmentActivity): ApiClient {
+            return if (singleton == null) {
                 singleton = ApiClient(activity)
-                return singleton
+                singleton!!
             } else
-                return singleton
+                singleton!!
         }
     }
 
