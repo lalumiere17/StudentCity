@@ -5,11 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
-
 import com.example.studentcity.R
 
 class Router {
@@ -45,7 +43,7 @@ class Router {
     }
 
     fun showFragment(newFragment: Fragment, args: Bundle?) {
-        if (currentFragment != null && currentFragment.javaClass == newFragment.javaClass) return
+        if (currentFragment.javaClass == newFragment.javaClass) return
 
         if (args != null)
             newFragment.arguments = args
@@ -58,7 +56,7 @@ class Router {
     }
 
     fun showFragmentGone(newFragment: Fragment, args: Bundle?) {
-        if (currentFragment != null && currentFragment.javaClass == newFragment.javaClass) return
+        if (currentFragment.javaClass == newFragment.javaClass) return
 
         if (args != null)
             newFragment.arguments = args
@@ -70,10 +68,9 @@ class Router {
     }
 
     fun clearFragment() {
-        if (currentFragment != null)
-            fragmentManager!!.beginTransaction()
-                .remove(currentFragment)
-                .commit()
+        fragmentManager!!.beginTransaction()
+            .remove(currentFragment)
+            .commit()
     }
 
     fun redirectToCallForward(phoneNumber: String) {
