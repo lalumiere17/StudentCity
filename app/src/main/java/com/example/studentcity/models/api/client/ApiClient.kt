@@ -75,7 +75,7 @@ class ApiClient private constructor(private val activity: FragmentActivity) {
         @SuppressLint("StaticFieldLeak")
         private var singleton: ApiClient? = null
 
-        fun getInstance(activity: FraggtmentActivity): ApiClient {
+        fun getInstance(activity: FragmentActivity): ApiClient {
             return if (singleton == null) {
                 singleton = ApiClient(activity)
                 singleton!!
