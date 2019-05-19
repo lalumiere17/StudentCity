@@ -12,18 +12,18 @@ class ListOfHostelsFragmentPresenter(private val fragment: ListOfHostelsFragment
     fun downloadListOfHostels() {
         loader = LoaderOfHostels()
         fragment.showProgress()
-        loader!!.download(fragment.getActivity(), object : DownloadListOfHostelsCallback() {
-            fun onSuccess(hostels: Array<Hostel>) {
+        loader!!.download(fragment.activity!!, object : DownloadListOfHostelsCallback {
+            override fun onSuccess(hostels: Array<Hostel>) {
                 fragment.hideProgress()
                 fragment.showListHostel(hostels)
             }
 
-            fun onFailInternetConnection() {
+            override fun onFailInternetConnection() {
                 fragment.hideProgress()
                 fragment.showMessage(fragment.getString(R.string.internet_connection_is_messed))
             }
 
-            fun onServerError() {
+            override fun onServerError() {
                 fragment.hideProgress()
                 fragment.showMessage(fragment.getString(R.string.error_downloading_data))
             }
