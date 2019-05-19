@@ -2,14 +2,10 @@ package com.example.studentcity.models.news
 
 import android.os.AsyncTask
 import android.text.TextUtils
-
-import com.vk.sdk.api.VKApi
 import com.vk.sdk.api.model.VKApiPhoto
 import com.vk.sdk.api.model.VKApiPost
-import com.vk.sdk.api.model.VKAttachments
 import com.vk.sdk.api.model.VKList
-
-import java.util.ArrayList
+import java.util.*
 
 class NewsModel(val text: String, val photo: String) {
 
@@ -34,7 +30,9 @@ class NewsModel(val text: String, val photo: String) {
                 val textPost = post.text
                 val photoPost = getPhoto(post)
 
-                news.add(NewsModel(textPost, photoPost))
+                if(TextUtils.isEmpty(photoPost)) continue
+
+                news.add(NewsModel(textPost, photoPost!!))
             }
 
             return news
@@ -44,7 +42,7 @@ class NewsModel(val text: String, val photo: String) {
             super.onPostExecute(news)
             if (news == null) return
 
-            if (posts != null && posts!!.size() !== 0 && news.size == 0)
+            if (posts != null && posts.size != 0 && news.size == 0)
                 callback.onFail()
             else
                 callback.onConvert(news)
@@ -52,20 +50,14 @@ class NewsModel(val text: String, val photo: String) {
         }
 
         private fun getPhoto(post: VKApiPost): String? {
-            if (post.attachments.getCount() > 0) {
-                for (attachment in post.attachments) {
+            if (post.attachments.count > 0) {
+                for (attachment in post.attachments) if (attachment.type == "photo") {
+                    val photo = attachment as VKApiPhoto
 
-                    if (attachment.getType().equals("photo")) {
-                        val photo = attachment as VKApiPhoto
-
-                        if (photo != null) {
-                            return if (photo!!.photo_1280 != null)
-                                photo!!.photo_1280
-                            else if (photo!!.photo_604 != null)
-                                photo!!.photo_604
-                            else
-                                null
-                        }
+                    return when {
+                        photo.photo_1280 != null -> photo.photo_1280
+                        photo.photo_604 != null -> photo.photo_604
+                        else -> null
                     }
                 }
             }
