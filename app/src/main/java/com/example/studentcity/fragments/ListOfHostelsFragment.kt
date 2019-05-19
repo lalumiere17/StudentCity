@@ -39,7 +39,7 @@ class ListOfHostelsFragment : RootFragment(), HostelListAdapter.onItemClickListe
         lifecycleRegistry = LifecycleRegistry(this)
         listOfHostelsView = view.findViewById(R.id.list_of_hostel)
         presenter = ListOfHostelsFragmentPresenter(this)
-        router = Router(this)git
+        router = Router(this)
     }
 
     override fun onPause() {
