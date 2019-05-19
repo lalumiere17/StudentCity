@@ -24,7 +24,7 @@ class NewsFragment : RootFragment() {
     private var listNewsView: RecyclerView? = null
     private var presenter: NewsFragmentPresenter? = null
 
-    fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +32,7 @@ class NewsFragment : RootFragment() {
         return inflater.inflate(R.layout.news_fragment, container, false)
     }
 
-    fun onViewCreated(
+    override fun onViewCreated(
         fragmentView: View,
         savedInstanceState: Bundle?
     ) {
@@ -47,7 +47,7 @@ class NewsFragment : RootFragment() {
         presenter = NewsFragmentPresenter(this)
     }
 
-    fun onResume() {
+   override  fun onResume() {
         super.onResume()
 
         if (presenter!!.auth()) {
@@ -56,12 +56,12 @@ class NewsFragment : RootFragment() {
         presenter!!.startTokenTracking()
     }
 
-    fun onStop() {
+    override fun onStop() {
         super.onStop()
         presenter!!.stopTokenTracking()
     }
 
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
         presenter!!.onAuthResult(requestCode, resultCode, data)
     }
@@ -73,7 +73,7 @@ class NewsFragment : RootFragment() {
             return
         }
 
-        val adapter = ListNewsAdapter(getContext(), news, null)
+        val adapter = ListNewsAdapter(context!!, news, null)
         listNewsView!!.adapter = adapter
     }
 }
