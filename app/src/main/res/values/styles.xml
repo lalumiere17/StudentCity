@@ -60,4 +60,13 @@
 	<style name="StaffNameStyle" parent="StaffTextStyle">
 		<item name="android:textStyle">bold</item>
 	</style>
+
+	<style name="PassFormStyle">
+		<item name="android:textSize">@dimen/text_size</item>
+		<item name="android:textColor">#303030</item>
+		<item name="android:padding">@dimen/small_padding</item>
+		<item name="android:layout_marginTop">@dimen/layout_margin</item>
+		<item name="android:fontFamily">@font/roboto</item>
+	</style>
+
 </resources>

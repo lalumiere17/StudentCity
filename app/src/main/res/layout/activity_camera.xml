@@ -19,4 +19,6 @@
             android:layout_margin="30dp"
             />
 
+    <include layout="@layout/form_to_get_pass"></include>
+
 </android.support.constraint.ConstraintLayout>

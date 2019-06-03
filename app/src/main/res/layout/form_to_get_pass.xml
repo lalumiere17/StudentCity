@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layout_margin"
+    >
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:id="@+id/info_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/info_pass"
+                    style="@style/PassFormStyle"
+                    app:layout_constraintBottom_toTopOf="@id/form_surname"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+            />
+            <EditText
+                    android:id="@+id/form_surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:hint="Фамилия"
+                    android:inputType="textCapWords"
+
+                    app:layout_constraintBottom_toTopOf="@id/form_name"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_pass"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+            <EditText
+                    android:id="@+id/form_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:hint="Имя"
+                    android:inputType="textCapWords"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/form_surname"
+                    app:layout_constraintBottom_toTopOf="@id/form_patronimic"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+            <EditText
+                    android:id="@+id/form_patronimic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:hint="Отчество"
+                    android:inputType="textCapWords"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/form_name"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <EditText
+                    android:id="@+id/form_hostelNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:hint="Номер общежития"
+                    android:inputType="number"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/form_patronimic"
+                    app:layout_constraintLeft_toLeftOf="parent"
+            />
+            <EditText
+                    android:id="@+id/form_RoomNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:hint="Номер комнаты"
+                    android:inputType="number"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/form_hostelNumber"
+                    app:layout_constraintLeft_toLeftOf="parent"
+            />
+            <EditText
+                    android:id="@+id/form_Department"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_margin"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:hint="Факультет (на прим.: ВШ ЭКН)"
+                    android:inputType="number"
+
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/form_RoomNumber"
+                    app:layout_constraintLeft_toLeftOf="parent"
+            />
+            <TextView
+                    android:id="@+id/form_textUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Загрузите фото"
+                    style="@style/PassFormStyle"
+                    app:layout_constraintTop_toBottomOf="@id/form_Department"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+            <ImageView
+                    android:id="@+id/pass_photo"
+                    android:layout_width="150dp"
+                    android:layout_height="185dp"
+                    android:src="@drawable/image_pass_photo"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/form_textUpload"
+                    app:layout_constraintBottom_toTopOf="@id/button_upload_photo"
+            />
+            <Button
+                    android:id="@+id/button_upload_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="ЗАГРУЗИТЬ ФОТО"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/colorGray300"
+                    android:fontFamily="@font/roboto"
+                    android:padding="@dimen/small_padding"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pass_photo"
+                    app:layout_constraintRight_toRightOf="parent"
+            />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>
