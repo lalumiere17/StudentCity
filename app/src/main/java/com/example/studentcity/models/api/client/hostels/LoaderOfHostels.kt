@@ -1,4 +1,4 @@
-package com.example.studentcity.models.api.client.Hostels
+package com.example.studentcity.models.api.client.hostels
 
 import android.support.v4.app.FragmentActivity
 

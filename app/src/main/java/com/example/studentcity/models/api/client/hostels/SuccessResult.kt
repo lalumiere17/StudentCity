@@ -1,4 +1,4 @@
-package com.example.studentcity.models.api.client.Hostels
+package com.example.studentcity.models.api.client.hostels
 
 import com.example.studentcity.models.database.Hostel
 
