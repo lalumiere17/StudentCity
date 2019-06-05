@@ -1,5 +1,6 @@
 package com.example.studentcity.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -15,6 +16,7 @@ import com.example.studentcity.R
 import com.example.studentcity.models.Router
 import com.example.studentcity.ui.fragments.CreatePassFragment
 import com.example.studentcity.ui.fragments.ListOfHostelsFragment
+import com.example.studentcity.ui.fragments.MapFragment
 import com.example.studentcity.ui.fragments.NewsFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -75,6 +77,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.menu_pass -> {
                 router.showFragmentGone(CreatePassFragment(), null)
+            }
+            R.id.menu_map -> {
+                startActivity(Intent(this, MapActivity::class.java))
             }
         }
 
