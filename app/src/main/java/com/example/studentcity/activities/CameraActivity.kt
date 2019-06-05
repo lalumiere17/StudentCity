@@ -25,8 +25,8 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
-        camera_button = findViewById(R.id.camera_button)
-        camera_button.setOnClickListener { dispatchTakePictureIntent() }
+//        camera_button = findViewById(R.id.camera_button)
+//        camera_button.setOnClickListener { dispatchTakePictureIntent() }
     }
 
 

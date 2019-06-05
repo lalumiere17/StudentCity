@@ -99,7 +99,6 @@ class ListNewsAdapter(
 
                 for (str in texts) {
                     result += String.format("%s\n", str)
-
                 }
 
                 return result
