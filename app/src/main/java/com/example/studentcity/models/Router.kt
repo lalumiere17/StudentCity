@@ -15,14 +15,10 @@ class Router {
     private var fragmentManager: FragmentManager? = null
     private var activity: Activity? = null
 
-    private lateinit var currentFragment: Fragment
-
     constructor(fragment: Fragment) {
         this.fragmentManager = fragment
             .activity!!
             .supportFragmentManager
-
-        this.currentFragment = fragment
 
         this.activity = fragment.activity
     }
@@ -43,7 +39,7 @@ class Router {
     }
 
     fun showFragment(newFragment: Fragment, args: Bundle?) {
-        if (currentFragment.javaClass == newFragment.javaClass) return
+//        if (currentFragment.javaClass == newFragment.javaClass) return
 
         if (args != null)
             newFragment.arguments = args
@@ -56,7 +52,6 @@ class Router {
     }
 
     fun showFragmentGone(newFragment: Fragment, args: Bundle?) {
-        if (currentFragment.javaClass == newFragment.javaClass) return
 
         if (args != null)
             newFragment.arguments = args
@@ -69,7 +64,7 @@ class Router {
 
     fun clearFragment() {
         fragmentManager!!.beginTransaction()
-            .remove(currentFragment)
+//            .remove(currentFragment)
             .commit()
     }
 

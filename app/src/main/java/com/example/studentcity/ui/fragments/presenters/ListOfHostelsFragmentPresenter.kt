@@ -1,7 +1,7 @@
-package com.example.studentcity.fragments.presenters
+package com.example.studentcity.ui.fragments.presenters
 
 import com.example.studentcity.R
-import com.example.studentcity.fragments.ListOfHostelsFragment
+import com.example.studentcity.ui.fragments.ListOfHostelsFragment
 import com.example.studentcity.models.api.client.Hostels.DownloadListOfHostelsCallback
 import com.example.studentcity.models.api.client.Hostels.LoaderOfHostels
 import com.example.studentcity.models.database.Hostel

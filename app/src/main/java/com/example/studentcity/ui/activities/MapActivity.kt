@@ -1,4 +1,4 @@
-package com.example.studentcity.activities
+package com.example.studentcity.ui.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity

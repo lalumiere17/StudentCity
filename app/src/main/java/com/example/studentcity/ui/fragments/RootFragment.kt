@@ -1,4 +1,4 @@
-package com.example.studentcity.fragments
+package com.example.studentcity.ui.fragments
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -6,6 +6,6 @@ import com.vk.sdk.VKSdk
 class DefaultApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        VKSdk.initialize(applicationContext)
+        VKSdk.initialize(this)
     }
 }

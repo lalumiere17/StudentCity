@@ -1,11 +1,7 @@
-package com.example.studentcity.fragments
+package com.example.studentcity.ui.fragments
 
-import android.content.Context
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
-import android.os.ParcelUuid
-import android.print.PrinterId
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -13,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.studentcity.R
-import com.example.studentcity.adapters.ListNewsAdapter
-import com.example.studentcity.fragments.presenters.NewsFragmentPresenter
+import com.example.studentcity.ui.adapters.ListNewsAdapter
+import com.example.studentcity.ui.fragments.presenters.NewsFragmentPresenter
 import com.example.studentcity.models.news.NewsModel
 
 import java.util.ArrayList
@@ -22,25 +18,18 @@ import java.util.ArrayList
 class NewsFragment : RootFragment() {
 
     private var listNewsView: RecyclerView? = null
-    private var presenter: NewsFragmentPresenter? = null
+    private var presenter: NewsFragmentPresenter = NewsFragmentPresenter(this)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.news_fragment, container, false)
     }
 
-    override fun onViewCreated(
-        fragmentView: View,
-        savedInstanceState: Bundle?
-    ) {
-        super.onViewCreated(fragmentView, savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        listNewsView = fragmentView.findViewById(R.id.list_news_view)
+        listNewsView = view.findViewById(R.id.list_news_view)
         val layoutManager = LinearLayoutManager(
-            getContext(),
+            context,
             LinearLayoutManager.VERTICAL, false
         )
         listNewsView!!.layoutManager = layoutManager
@@ -49,21 +38,20 @@ class NewsFragment : RootFragment() {
 
    override  fun onResume() {
         super.onResume()
-
-        if (presenter!!.auth()) {
-            presenter!!.sendRequest()
+        if (presenter.auth()) {
+            presenter.sendRequest()
         }
-        presenter!!.startTokenTracking()
+        presenter.startTokenTracking()
     }
 
     override fun onStop() {
         super.onStop()
-        presenter!!.stopTokenTracking()
+        presenter.stopTokenTracking()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
-        presenter!!.onAuthResult(requestCode, resultCode, data)
+        presenter.onAuthResult(requestCode, resultCode, data)
     }
 
     fun showNews(news: ArrayList<NewsModel>) {

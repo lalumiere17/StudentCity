@@ -3,23 +3,38 @@ package com.example.studentcity.models.api.client
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.support.v4.app.FragmentActivity
-
 import com.google.gson.Gson
-
+import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-import okhttp3.MediaType
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody
-import okhttp3.Response
-
 class ApiClient private constructor(private val activity: FragmentActivity) {
 
+    companion object {
+        private const val API_URL = "http://194.67.78.133/"
+        private const val TIMEOUT = 30L
+        private const val MEDIA_TYPE = "application/json"
+
+        @SuppressLint("StaticFieldLeak")
+        private var singleton: ApiClient? = null
+
+        fun getInstance(activity: FragmentActivity): ApiClient {
+            return if (singleton == null) {
+                singleton = ApiClient(activity)
+                singleton!!
+            } else
+                singleton!!
+        }
+    }
+
     private val client: OkHttpClient
+    init {
+        client = OkHttpClient.Builder()
+            .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(TIMEOUT, TimeUnit.SECONDS)
+            .build()
+    }
 
     val isOnline: Boolean
         get() {
@@ -28,13 +43,6 @@ class ApiClient private constructor(private val activity: FragmentActivity) {
             val networkInfo = connectivityManager.activeNetworkInfo
             return networkInfo?.isConnected ?: false
         }
-
-    init {
-        client = OkHttpClient.Builder()
-            .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
-            .readTimeout(TIMEOUT, TimeUnit.SECONDS)
-            .build()
-    }
 
     fun POSTRequest(action: String, data: Any): Response {
 
@@ -66,23 +74,4 @@ class ApiClient private constructor(private val activity: FragmentActivity) {
 
         return client.newCall(request).execute()
     }
-
-    companion object {
-        private const val API_URL = "http://192.168.31.72/"
-        private const val TIMEOUT = 30L
-        private const val MEDIA_TYPE = "application/json"
-
-        @SuppressLint("StaticFieldLeak")
-        private var singleton: ApiClient? = null
-
-        fun getInstance(activity: FragmentActivity): ApiClient {
-            return if (singleton == null) {
-                singleton = ApiClient(activity)
-                singleton!!
-            } else
-                singleton!!
-        }
-    }
-
-
 }
