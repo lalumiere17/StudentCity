@@ -1,4 +1,4 @@
-package com.example.studentcity.fragments
+package com.example.studentcity.ui.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 
 import com.example.studentcity.R
-import com.example.studentcity.fragments.presenters.HostelFragmentPresenter
+import com.example.studentcity.ui.fragments.presenters.HostelFragmentPresenter
 import com.example.studentcity.models.ImageLoader.ImageLoader
 
 import de.hdodenhof.circleimageview.CircleImageView

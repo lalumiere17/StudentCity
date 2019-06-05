@@ -1,4 +1,4 @@
-package com.example.studentcity.adapters
+package com.example.studentcity.ui.adapters
 
 import android.content.Context
 import android.support.design.widget.Snackbar

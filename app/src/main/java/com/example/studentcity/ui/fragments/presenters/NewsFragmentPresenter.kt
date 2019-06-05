@@ -1,8 +1,8 @@
-package com.example.studentcity.fragments.presenters
+package com.example.studentcity.ui.fragments.presenters
 
 import android.content.Intent
 import com.example.studentcity.R
-import com.example.studentcity.fragments.NewsFragment
+import com.example.studentcity.ui.fragments.NewsFragment
 import com.example.studentcity.models.news.NewsModel
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKAccessTokenTracker
@@ -86,7 +86,7 @@ class NewsFragmentPresenter(private val fragment: NewsFragment) {
 
     fun auth(): Boolean {
         if (fragment.checkInternetConnection()) {
-            if (!VKSdk.isLoggedIn()) {
+            if (!VKSdk.isLoggedIn() && fragment.activity != null) {
                 VKSdk.login(fragment.activity!!, null)
                 return false
             }

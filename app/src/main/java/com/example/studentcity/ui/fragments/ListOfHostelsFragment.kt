@@ -1,4 +1,4 @@
-package com.example.studentcity.fragments
+package com.example.studentcity.ui.fragments
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.LifecycleRegistry
@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.studentcity.R
-import com.example.studentcity.adapters.HostelListAdapter
-import com.example.studentcity.fragments.presenters.ListOfHostelsFragmentPresenter
+import com.example.studentcity.ui.adapters.HostelListAdapter
+import com.example.studentcity.ui.fragments.presenters.ListOfHostelsFragmentPresenter
 import com.example.studentcity.models.Router
 import com.example.studentcity.models.database.Hostel
 

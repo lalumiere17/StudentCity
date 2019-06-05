@@ -1,15 +1,13 @@
-package com.example.studentcity.fragments.presenters
+package com.example.studentcity.ui.fragments.presenters
 
-import android.os.Bundle
 import android.text.TextUtils
 
 import com.example.studentcity.R
-import com.example.studentcity.fragments.HostelFragment
+import com.example.studentcity.ui.fragments.HostelFragment
 import com.example.studentcity.models.Router
 import com.example.studentcity.models.database.Coordinates
 import com.example.studentcity.models.database.Hostel
 import com.example.studentcity.models.database.Post
-import com.example.studentcity.models.database.Stuff
 
 class HostelFragmentPresenter(private val fragment: HostelFragment) {
     private var hostel: Hostel? = null
