@@ -2,6 +2,8 @@ package com.example.studentcity.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -33,6 +35,10 @@ class NewsFragment : RootFragment() {
             LinearLayoutManager.VERTICAL, false
         )
         listNewsView!!.layoutManager = layoutManager
+
+        val itemDecoration = DividerItemDecoration(context, layoutManager.orientation)
+        itemDecoration.setDrawable(ContextCompat.getDrawable(context!!, R.drawable.divider)!!)
+        listNewsView?.addItemDecoration(itemDecoration)
         presenter = NewsFragmentPresenter(this)
     }
 
