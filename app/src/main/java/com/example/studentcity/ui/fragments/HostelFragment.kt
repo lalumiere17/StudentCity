@@ -124,19 +124,19 @@ class HostelFragment : RootFragment() {
     }
 
     fun showHostelManager(urlPhoto: String, name: String) {
-        showManagerInfo(hostelManagerNameView, hostelManagerPhoto, urlPhoto, name)
+        showManagerInfo(hostelManagerNameView, hostelManagerPhoto, name, urlPhoto)
     }
 
     fun showStudentManager(urlPhoto: String, name: String) {
-        showManagerInfo(studentManagerNameView, studentManagerPhotoView, urlPhoto, name)
+        showManagerInfo(studentManagerNameView, studentManagerPhotoView, name, urlPhoto)
     }
 
     fun showCultureManager(urlPhoto: String, name: String) {
-        showManagerInfo(cultureManagerNameView, cultureManagerPhotoView, urlPhoto, name)
+        showManagerInfo(cultureManagerNameView, cultureManagerPhotoView, name, urlPhoto)
     }
 
     fun showSportManager(urlPhoto: String, name: String) {
-        showManagerInfo(sportManagerNameView, sportManagerPhotoView, urlPhoto, name)
+        showManagerInfo(sportManagerNameView, sportManagerPhotoView, name, urlPhoto)
     }
 
     private fun checkPhotoAndName(photo: String, name: String): Boolean {
