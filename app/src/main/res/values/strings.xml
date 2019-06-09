@@ -39,6 +39,7 @@
     <string name="faculty">Факультет (на прим.: ВШЭКН)</string>
     <string name="uploadPhoto">Загрузить фото</string>
 
+    <string name="home_questions">Жилищные вопросы</string>
     <string name="zkhTitle">Заявки на ЖКХ</string>
     <string name="zkhDescription">Заявки на работы плотника, сантехника и пр.</string>
     <string name="my_queues_title">Мои записи</string>

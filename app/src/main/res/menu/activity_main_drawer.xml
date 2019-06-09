@@ -27,7 +27,7 @@
 
 			<item
 				android:id="@+id/menu_home_questions"
-				android:title="Жилищные вопросы"
+				android:title="@string/home_questions"
 				android:icon="@drawable/ic_home"/>
 		</menu>
 	</item>

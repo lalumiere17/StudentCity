@@ -15,6 +15,7 @@ import android.widget.ProgressBar
 import com.example.studentcity.R
 import com.example.studentcity.models.Router
 import com.example.studentcity.ui.fragments.*
+import kotlinx.android.synthetic.main.app_bar.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,7 +27,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar:Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         drawerLayout = findViewById(R.id.drawer_layout)
