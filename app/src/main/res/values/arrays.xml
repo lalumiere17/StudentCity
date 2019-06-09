@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ticket_types">
+        <item>Сантехник</item>
+        <item>Плотник</item>
+        <item>Стирка</item>
+    </string-array>
+
+    <string-array name="ticket_times">
+        <item>10.06.2019 8:00</item>
+        <item>10.06.2019 9:00</item>
+        <item>10.06.2019 10:00</item>
+        <item>10.06.2019 11:00</item>
+        <item>10.06.2019 12:00</item>
+        <item>10.06.2019 13:00</item>
+        <item>10.06.2019 14:00</item>
+
+
+        <item>11.06.2019 8:00</item>
+        <item>11.06.2019 9:00</item>
+        <item>11.06.2019 10:00</item>
+        <item>11.06.2019 11:00</item>
+        <item>11.06.2019 12:00</item>
+        <item>11.06.2019 13:00</item>
+        <item>11.06.2019 14:00</item>
+    </string-array>
+</resources>

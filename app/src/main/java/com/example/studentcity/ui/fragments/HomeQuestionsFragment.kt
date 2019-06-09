@@ -36,6 +36,7 @@ class HomeQuestionsFragment : Fragment() {
                 override fun onClick(homeQuestion: HomeQuestion) {
                     when(homeQuestion.id) {
                         0 -> { router.showFragment(QueuesFragment(), null) }
+                        1 -> { router.showFragment(ZkhCreateTickerFragment(), null)}
                     }
                 }
             }

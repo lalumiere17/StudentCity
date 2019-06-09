@@ -10,6 +10,7 @@ import com.example.studentcity.R
 import com.example.studentcity.models.api.client.hostels.DownloadListOfHostelsCallback
 import com.example.studentcity.models.api.client.hostels.LoaderOfHostels
 import com.example.studentcity.models.database.Hostel
+import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.fragment_create_pass.*
 
 class CreatePassFragment : Fragment() {

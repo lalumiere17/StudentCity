@@ -14,6 +14,7 @@ import com.example.studentcity.R
 import com.example.studentcity.ui.adapters.ListNewsAdapter
 import com.example.studentcity.ui.fragments.presenters.NewsFragmentPresenter
 import com.example.studentcity.models.news.NewsModel
+import kotlinx.android.synthetic.main.app_bar.*
 
 import java.util.ArrayList
 
@@ -28,6 +29,8 @@ class NewsFragment : RootFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity!!.toolbar.title = getString(R.string.news)
 
         listNewsView = view.findViewById(R.id.list_news_view)
         val layoutManager = LinearLayoutManager(
