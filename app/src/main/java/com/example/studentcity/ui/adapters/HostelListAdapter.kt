@@ -24,7 +24,7 @@ class HostelListAdapter(
         this.inflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(container: ViewGroup, i: Int): HostelListAdapter.ViewHolder {
+    override fun onCreateViewHolder(container: ViewGroup, i: Int): ViewHolder {
         val itemList : View = inflater.inflate(R.layout.item_of_hostel_list, container,
             false)
 
@@ -32,7 +32,7 @@ class HostelListAdapter(
     }
 
     override fun onBindViewHolder(
-        viewHolder: HostelListAdapter.ViewHolder,
+        viewHolder: ViewHolder,
         position: Int) {
         val hostelName : TextView = viewHolder.itemView.findViewById(R.id.hostelName)
         val hostelAddress : TextView = viewHolder.itemView.findViewById(R.id.hostelAddress)

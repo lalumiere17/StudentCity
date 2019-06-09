@@ -39,6 +39,11 @@
     <string name="faculty">Факультет (на прим.: ВШЭКН)</string>
     <string name="uploadPhoto">Загрузить фото</string>
 
+    <string name="zkhTitle">Заявки на ЖКХ</string>
+    <string name="zkhDescription">Заявки на работы плотника, сантехника и пр.</string>
+    <string name="my_queues_title">Мои записи</string>
+    <string name="my_queues_description">Списки услуг, на которые вы записались</string>
+
     <string name="mister_of_city">Мистер студгородка</string>
     <string name="miss_of_city">Мисс студгородка</string>
     <string name="best_room">Лучшая комната</string>

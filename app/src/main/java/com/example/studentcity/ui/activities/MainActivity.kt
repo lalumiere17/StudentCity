@@ -14,10 +14,7 @@ import android.view.View
 import android.widget.ProgressBar
 import com.example.studentcity.R
 import com.example.studentcity.models.Router
-import com.example.studentcity.ui.fragments.CreatePassFragment
-import com.example.studentcity.ui.fragments.ListOfHostelsFragment
-import com.example.studentcity.ui.fragments.MapFragment
-import com.example.studentcity.ui.fragments.NewsFragment
+import com.example.studentcity.ui.fragments.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -80,6 +77,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.menu_map -> {
                 startActivity(Intent(this, MapActivity::class.java))
+            }
+            R.id.menu_home_questions -> {
+                router.showFragmentGone(HomeQuestionsFragment(), null)
             }
         }
 

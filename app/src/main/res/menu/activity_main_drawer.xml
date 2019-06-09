@@ -21,9 +21,14 @@
 				android:icon="@drawable/ic_news"/>
 
 			<item
-					android:id="@+id/menu_pass"
-					android:title="Пропуск"
-					android:icon="@drawable/ic_pass"/>
+				android:id="@+id/menu_pass"
+				android:title="Пропуск"
+				android:icon="@drawable/ic_pass"/>
+
+			<item
+				android:id="@+id/menu_home_questions"
+				android:title="Жилищные вопросы"
+				android:icon="@drawable/ic_home"/>
 		</menu>
 	</item>
 	<item android:title="@string/events">
