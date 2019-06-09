@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
 
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/layout_margin">
+            android:layout_height="match_parent">
+
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <TextView
-                    android:id="@+id/info_pass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/info_pass"
-                    style="@style/PassFormStyle"
-                    android:fontFamily="@font/roboto"/>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_person"/>
+
+                <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="@dimen/activity_margin"
+                        android:src="@drawable/ic_camera_black"/>
+
+            </FrameLayout>
+
+            <!--<TextView-->
+                    <!--style="@style/PassFormStyle"-->
+                    <!--android:id="@+id/info_pass"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/info_pass"-->
+                    <!--android:fontFamily="@font/roboto"/>-->
 
             <android.support.design.widget.TextInputLayout
                     style="@style/TextInputLayoutStyle">
 
                 <AutoCompleteTextView
+                        android:id="@+id/surnameView"
                         style="@style/TextInputStyle"
-                        android:hint="Фамилия"/>
+                        android:hint="@string/surname"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -35,8 +55,9 @@
                     style="@style/TextInputLayoutStyle">
 
                 <AutoCompleteTextView
+                        android:id="@+id/firstnameView"
                         style="@style/TextInputStyle"
-                        android:hint="Имя"/>
+                        android:hint="@string/firstname"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -44,159 +65,50 @@
                     style="@style/TextInputLayoutStyle">
 
                 <AutoCompleteTextView
+                        android:id="@+id/patronymicView"
                         style="@style/TextInputStyle"
-                        android:hint="Отчество"/>
+                        android:hint="@string/patronymic"/>
 
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                    style="@style/TextInputLayoutStyle">
-
-                <AutoCompleteTextView
-                        style="@style/TextInputStyle"
-                        android:hint="Общежитие №"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                    style="@style/TextInputLayoutStyle">
-
-                <AutoCompleteTextView
-                        style="@style/TextInputStyle"
-                        android:hint="Комната №"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                    style="@style/TextInputLayoutStyle">
-
-                <AutoCompleteTextView
-                        style="@style/TextInputStyle"
-                        android:hint="Факультет (на прим.: ВШЭКН)"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <Button android:layout_width="match_parent"
+            <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/hostelNameView"
+                    android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
-                    android:layout_marginTop="@dimen/layout_margin"
+            <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayoutStyle">
 
+                <AutoCompleteTextView
+                        android:id="@+id/roomNumberView"
+                        style="@style/TextInputStyle"
+                        android:hint="@string/roomNumber"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayoutStyle">
+
+                <AutoCompleteTextView
+                        android:id="@+id/facultyView"
+                        style="@style/TextInputStyle"
+                        android:hint="@string/faculty"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/buttonHeight"
+                    android:layout_margin="@dimen/activity_margin"
                     android:background="@drawable/btn_selector"
-
-                    android:text="Загрузить фото"
+                    android:text="@string/uploadPhoto"
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:fontFamily="@font/roboto"
                     android:textSize="@dimen/text_size"/>
-
-            <!--<EditText-->
-            <!--android:id="@+id/form_surname"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:hint="Фамилия"-->
-            <!--android:inputType="textCapWords"-->
-
-            <!--app:layout_constraintTop_toBottomOf="@id/info_pass" android:layout_marginTop="36dp"-->
-            <!--tools:layout_editor_absoluteX="0dp"/>-->
-            <!--<EditText-->
-            <!--android:id="@+id/form_name"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/layout_margin"-->
-            <!--android:layout_marginRight="@dimen/layout_margin"-->
-            <!--android:hint="Имя"-->
-            <!--android:inputType="textCapWords"-->
-
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_surname"-->
-            <!--app:layout_constraintBottom_toTopOf="@id/form_patronimic"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"/>-->
-            <!--<EditText-->
-            <!--android:id="@+id/form_patronimic"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/layout_margin"-->
-            <!--android:layout_marginRight="@dimen/layout_margin"-->
-            <!--android:hint="Отчество"-->
-            <!--android:inputType="textCapWords"-->
-
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_name"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"/>-->
-
-            <!--<EditText-->
-            <!--android:id="@+id/form_hostelNumber"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/layout_margin"-->
-            <!--android:layout_marginRight="@dimen/layout_margin"-->
-            <!--android:hint="Номер общежития"-->
-            <!--android:inputType="number"-->
-
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_patronimic"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--/>-->
-            <!--<EditText-->
-            <!--android:id="@+id/form_RoomNumber"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/layout_margin"-->
-            <!--android:layout_marginRight="@dimen/layout_margin"-->
-            <!--android:hint="Номер комнаты"-->
-            <!--android:inputType="number"-->
-
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_hostelNumber"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--/>-->
-            <!--<EditText-->
-            <!--android:id="@+id/form_Department"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/layout_margin"-->
-            <!--android:layout_marginRight="@dimen/layout_margin"-->
-            <!--android:hint="Факультет (на прим.: ВШ ЭКН)"-->
-            <!--android:inputType="number"-->
-
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_RoomNumber"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--/>-->
-            <!--<TextView-->
-            <!--android:id="@+id/form_textUpload"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Загрузите фото"-->
-            <!--style="@style/PassFormStyle"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_Department"-->
-            <!--app:layout_constraintLeft_toLeftOf="parent"/>-->
-            <!--<ImageView-->
-            <!--android:id="@+id/pass_photo"-->
-            <!--android:layout_width="150dp"-->
-            <!--android:layout_height="185dp"-->
-            <!--android:src="@drawable/image_pass_photo"-->
-
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintRight_toRightOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/form_textUpload"-->
-            <!--app:layout_constraintBottom_toTopOf="@id/button_upload_photo"-->
-            <!--/>-->
-            <!--<Button-->
-            <!--android:id="@+id/button_upload_photo"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_margin="16dp"-->
-            <!--android:background="@color/colorPrimaryDark"-->
-            <!--android:text="ЗАГРУЗИТЬ ФОТО"-->
-            <!--android:textSize="@dimen/text_size"-->
-            <!--android:textColor="@color/colorGray300"-->
-            <!--android:fontFamily="@font/roboto"-->
-            <!--android:padding="@dimen/small_padding"-->
-
-            <!--app:layout_constraintLeft_toLeftOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@id/pass_photo"-->
-            <!--app:layout_constraintRight_toRightOf="parent"/>-->
 
         </LinearLayout>
 

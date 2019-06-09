@@ -32,6 +32,12 @@
 
     <string name="info_pass">Для получения доступа к цифровой версии пропуска необходимо заполнить следующие данные</string>
 
+    <string name="surname">Фамилия</string>
+    <string name="firstname">Имя</string>
+    <string name="patronymic">Отчество</string>
+    <string name="roomNumber">Комната №</string>
+    <string name="faculty">Факультет (на прим.: ВШЭКН)</string>
+    <string name="uploadPhoto">Загрузить фото</string>
 
     <string name="mister_of_city">Мистер студгородка</string>
     <string name="miss_of_city">Мисс студгородка</string>

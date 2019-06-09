@@ -19,8 +19,8 @@ class HostelFragment : RootFragment() {
 
     private lateinit var hostelPhotoView: ImageView
 
-    private lateinit var buttonCall: Button
-    private lateinit var buttonMap: Button
+    lateinit var buttonCall: Button
+    lateinit var buttonMap: Button
 
     private lateinit var hostelTitle: TextView
     private lateinit var hostelAddress: TextView
@@ -55,7 +55,6 @@ class HostelFragment : RootFragment() {
         hostelPhotoView = view.findViewById(R.id.hostelPhoto)
 
         buttonCall = view.findViewById(R.id.buttonCall)
-        buttonCall.setOnClickListener { presenter.redirectToCall() }
 
         buttonMap = view.findViewById(R.id.buttonInMap)
 

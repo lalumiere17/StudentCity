@@ -76,7 +76,7 @@ class ListOfHostelsFragment : RootFragment(), HostelListAdapter.onItemClickListe
 
     override fun onItemClick(hostel: Hostel) {
         val args = Bundle()
-        args.putSerializable(Hostel.SERIALIZABLE_KEY, hostel)
+        args.putSerializable(Hostel.SERIALIZABLE_KEY, hostel.title)
         router!!.showFragment(HostelFragment(), args)
     }
 }
