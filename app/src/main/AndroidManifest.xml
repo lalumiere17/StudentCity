@@ -17,7 +17,7 @@
             android:label="@string/app_name"
             android:roundIcon="@drawable/logo"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme.NoActionBar">
 
         <activity
                 android:name="com.vk.sdk.VKServiceActivity"
@@ -41,6 +41,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+                android:name=".ui.fragments.PassActivity"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:screenOrientation="landscape"
+        />
     </application>
 
 </manifest>

@@ -44,11 +44,20 @@ class Router {
         if (args != null)
             newFragment.arguments = args
 
-        fragmentManager!!.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .replace(R.id.fragment_container, newFragment)
-            .addToBackStack(null)
-            .commit()
+        if(fragmentManager!!.fragments.size == 0) {
+            fragmentManager!!.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .add(R.id.fragment_container, newFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+        else {
+            fragmentManager!!.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.fragment_container, newFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     fun showFragmentGone(newFragment: Fragment, args: Bundle?) {
@@ -56,10 +65,18 @@ class Router {
         if (args != null)
             newFragment.arguments = args
 
-        fragmentManager!!.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .replace(R.id.fragment_container, newFragment)
-            .commit()
+        if(fragmentManager!!.fragments.size == 0) {
+            fragmentManager!!.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .add(R.id.fragment_container, newFragment)
+                .commit()
+        }
+        else {
+            fragmentManager!!.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.fragment_container, newFragment)
+                .commit()
+        }
     }
 
     fun clearFragment() {

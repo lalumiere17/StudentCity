@@ -55,5 +55,10 @@
     <string name="error_downloading_data">Ошибка загрузки данных</string>
     <string name="internet_connection_is_messed">Отсутствует интернет соединение</string>
 
-    <string name="title_activity_map">Map</string>
+    <string name="title_activity_map">Карта студгородка</string>
+
+    <string name="fullname">Сукина Светлана Андреевна</string>
+    <string name="roomNumberTxt">Комната № 415</string>
+    <string name="facultyTxt">Факультет ВШЭКН</string>
+    <string name="expiredDate">01.07.2019</string>
 </resources>
