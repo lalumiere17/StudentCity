@@ -27,8 +27,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.app_bar.*
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback,
-                    NavigationView.OnNavigationItemSelectedListener{
+class MapActivity : AppCompatActivity(), OnMapReadyCallback
+{
 
     private lateinit var mMap: GoogleMap
     private lateinit var progressBar: ProgressBar
@@ -40,20 +40,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
         setContentView(R.layout.activity_map)
 
         setSupportActionBar(toolbar)
-        toolbar.title = getString(R.string.title_activity_map)
-
-        drawerLayout = findViewById(R.id.drawer_layout)
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        val navigationView : NavigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
-
-        val mapFragment:SupportMapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -61,36 +48,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
         showHostels()
     }
 
-    override fun onBackPressed() {
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-            drawerLayout.closeDrawer(GravityCompat.START)
-        else
-            super.onBackPressed()
-    }
-
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_hostels -> {
-                router.showFragmentGone(ListOfHostelsFragment(), null)
-            }
-            R.id.menu_news -> {
-                router.showFragmentGone(NewsFragment(), null)
-            }
-            R.id.menu_pass -> {
-                router.showFragmentGone(CreatePassFragment(), null)
-            }
-            R.id.menu_map -> {
-                startActivity(Intent(this, MapActivity::class.java))
-            }
-            R.id.menu_home_questions -> {
-                router.showFragmentGone(HomeQuestionsFragment(), null)
-            }
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        onBackPressed()
+        return false
     }
 
     private fun showHostel(title:String, latitude:Double, longitude:Double) {
